@@ -3,24 +3,25 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
-function AddModal({ show, handleClose,apps, setApps, drName}) {
+function AddModal({ show, handleClose, apps, setApps, drName }) {
   const [name, setName] = useState("");
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
 
-
-  const handleSubmit =(e)=>{
-    e.preventDefault()
-      setApps([...apps, {
-        id: apps.length+1,
-        patient:name,
-        day:date,
-        consulted:false,
-        doctor: drName
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setApps([
+      ...apps,
+      {
+        id: new Date().getTime(),
+        patient: name,
+        day: date,
+        consulted: false,
+        doctor: drName,
       },
-    ])
+    ]);
 
-    handleClose()
-  }
+    handleClose();
+  };
 
   console.log(name);
   console.log(date);
@@ -41,7 +42,6 @@ function AddModal({ show, handleClose,apps, setApps, drName}) {
                 value={name}
               />
             </Form.Group>
-
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Date</Form.Label>
               <Form.Control
@@ -51,7 +51,6 @@ function AddModal({ show, handleClose,apps, setApps, drName}) {
                 value={date}
               />
             </Form.Group>
-
             <div className="text-center">
               <Button variant="success" type="submit" className="me-2">
                 Save{" "}

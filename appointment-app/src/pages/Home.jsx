@@ -1,19 +1,18 @@
-import { useState } from "react"
-import AppointmentList from "../components/AppointmentList"
-import Doctors from "../components/Doctors"
-import { appointmentData } from "../helper/data"
+import { useState } from "react";
+import AppointmentList from "../components/AppointmentList";
+import Doctors from "../components/Doctors";
+import { appointmentData } from "../helper/data";
 
 const Home = () => {
-
-  const [appointmens, setAppointmens] = useState(appointmentData)
-  console.log(appointmens)
+  const [appointmens, setAppointmens] = useState(appointmentData);
+  console.log(appointmens);
   return (
     <main className="text-center mt-2">
       <h1 className="display-5 text-danger">CLARUS HOSPITAL</h1>
       <Doctors apps={appointmens} setApps={setAppointmens} />
-      <AppointmentList apps={appointmens} />
+      <AppointmentList apps={appointmens} setApps={setAppointmens} />
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
