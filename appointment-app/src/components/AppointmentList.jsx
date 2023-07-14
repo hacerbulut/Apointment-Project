@@ -15,7 +15,7 @@ const AppointmentList = ({ apps }) => {
           <div
            key={id}
             className={consulted ? "appointments consulted" : "appointments"}>
-        <Row>
+        <Row className="justify-content-center align-item-center">
           <Col>
             <h4>{patient}</h4>
             <h5>{doctor}</h5>
@@ -23,7 +23,7 @@ const AppointmentList = ({ apps }) => {
           <Col>
             <h5>{day}</h5>
           </Col>
-          <Col>
+          <Col className="text-end">
            <TiDelete className="text-danger fs-1"/>
            </Col>
         </Row>

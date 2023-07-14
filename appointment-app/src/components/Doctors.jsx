@@ -5,8 +5,9 @@ import Col from "react-bootstrap/Col";
 import AddModal from "./AddModal";
 import { useState } from "react";
 
-const Doctors = () => {
+const Doctors = ({apps, setApps}) => {
   const [show, setShow] = useState(false);
+  const [drName, setDrName] = useState("")
 
   // const handleImgClick = () => {
   //   setShow(true);
@@ -23,14 +24,24 @@ const Doctors = () => {
               src={img}
               alt={name}
               className="img-thumbnail doctor-img"
-              onClick={() => setShow(true)}
+              onClick={() => {
+                setDrName(name)
+                setShow(true)
+              }}
             />
             <h5>{name}</h5>
             <h6>{dep}</h6>
           </Col>
         ))}
       </Row>
-      <AddModal show={show} handleClose={()=> setShow(false)} />
+      <AddModal 
+      show={show} 
+      handleClose={()=> setShow(false)}
+      apps={apps}
+      setApps={setApps}
+      drName={drName}
+      />
+
     </Container>
   );
 };
